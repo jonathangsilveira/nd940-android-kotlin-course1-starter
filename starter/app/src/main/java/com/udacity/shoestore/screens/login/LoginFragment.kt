@@ -26,11 +26,15 @@ class LoginFragment: Fragment() {
             false
         )
         binding.signInButton.setOnClickListener { view ->
-            val welcomeDirection = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-            view.findNavController().navigate(welcomeDirection)
+            navigateToWelcome(view)
         }
-        binding.registerButton.setOnClickListener {  }
+        binding.registerButton.setOnClickListener { view -> navigateToWelcome(view) }
         return binding.root
+    }
+
+    private fun navigateToWelcome(view: View) {
+        val welcomeDirection = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+        view.findNavController().navigate(welcomeDirection)
     }
 
 }
