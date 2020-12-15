@@ -1,4 +1,4 @@
-package com.udacity.shoestore.screens
+package com.udacity.shoestore.screens.instructions
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
@@ -25,7 +26,9 @@ class InstructionsFragment: Fragment() {
             false
         )
         binding.shopButton.setOnClickListener { view ->
-
+            view.findNavController().navigate(
+                InstructionsFragmentDirections.actionInstructionsFragmentToShoesFragment()
+            )
         }
         return binding.root
     }
